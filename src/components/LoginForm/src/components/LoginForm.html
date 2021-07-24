@@ -1,0 +1,50 @@
+
+<section class="src-components-login-form">
+
+    <div class="container-fluid">
+      <vue-form :state="formState" @submit.prevent="login()">
+
+        <!-- Email -->
+        <validate tag="div" class="pt-2">
+          <label for="email">Email</label>
+          <input 
+            type="email" 
+            id="emailLogin" 
+            name="email"
+            class="form-control"
+            v-model.trim ='formData.email'
+            placeholder='Ingrese el email del alumno'
+            required
+            autocomplete="off"
+          >
+          <field-messages name="email" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-2">Email requerido</div>
+            <div slot="email" class="alert alert-danger mt-2">Email invalido</div>
+          </field-messages>
+        </validate>
+
+        <!-- Edad -->
+        <validate tag="div" class="pt-2">
+          <label for="edad">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password"
+            class="form-control"
+            placeholder='Ingrese contraseña'
+            v-model='formData.password'
+            required
+            autocomplete="off"
+          >
+          <field-messages name="edad" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-2">Contraseña requerida</div>
+          </field-messages>
+        </validate>
+        
+        <button class="btn btn-dark mt-3 me-3 mb-3" type="submit">Log in</button>
+      </vue-form>
+      
+    </div>
+ 
+</section>
+
